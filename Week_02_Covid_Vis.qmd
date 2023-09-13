@@ -1,7 +1,7 @@
 ---
 title: "Week 02: COVID Visualization Activity"
 date: "September, 11 2023"
-author: "**`[[`**Your Name**`]]`**"
+author: "Sungwoo Noh**"
 ---
 
 Today, we'll be working with a data set related to COVID.
@@ -21,7 +21,7 @@ Try using the different data sets and see which ones are good for making which p
 
 
 ```{r first_plot}
-ggplot(covid_data_count, aes(x = date, y = Cases)) + geom_point()
+ggplot(covid_data_orig, aes(x = State, y = Cases_Total)) + geom_point()
 ```
 
 
@@ -36,6 +36,24 @@ covid_data_count |>
 ```
 
 1. Write code for a plot and describe what you observe?
+
+```{r}
+covid_data_count|>
+  filter(state=="MN")|>
+ggplot(
+  mapping=aes(x=Deaths,y=race))+
+geom_line()
+
+```
+1. I observed line graph that has deaths as a x-axis and race as y-axis. 
+
 2. Are there any conclusions you can draw?
+White is the most race that has deaths and NHPI is the least race that has deaths in Minnesota. I can assume that the white people are likely to be exposed to corona virus han other races or majority of population in MN is white.
+
 3. What were you not able to do due to not having the R knowledge?
+I was not able to implement proper aesthetic properties such as change the angle of label, transparency, and etc.
+
 4. What other data would be useful to better understand this data?
+I believe age,gender, and poverty would be useful to better understand this data brcasue those are confounding factors that has impacts on covid-virus deaths. For example, older people are more likely to be infected with covid-19, so we can analyze the data in a different asepct and understand how the white people is the most race that died by covid-19.
+
+
